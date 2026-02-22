@@ -4,7 +4,7 @@ configuration: Release
 platform: Win32
 
 build_script:
-  - msbuild projects/vs2019/projects.sln /p:Configuration=Release /p:Platform=Win32 /p:PostBuildEventUseInBuild=false /verbosity:minimal
+  - msbuild projects/vs2019/projects.sln /t:hldll;hl_cdll /p:Configuration=Release /p:Platform=Win32 /p:PostBuildEventUseInBuild=false /verbosity:minimal
 
 artifacts:
   - path: projects\vs2019\Release\hl.dll
