@@ -3,10 +3,8 @@ image: Visual Studio 2019
 configuration: Release
 platform: Win32
 
-build:
-  project: projects/vs2019/projects.sln
-  verbosity: minimal
-  msbuild_options: /p:PostBuildEventUseInBuild=false
+build_script:
+  - msbuild projects/vs2019/projects.sln /p:Configuration=Release /p:Platform=Win32 /p:PostBuildEventUseInBuild=false /verbosity:minimal
 
 artifacts:
   - path: projects\vs2019\Release\hl.dll
