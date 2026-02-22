@@ -6,7 +6,7 @@ platform: Win32
 build:
   project: projects/vs2019/projects.sln
   verbosity: minimal
-  args: /p:PostBuildEventUseInBuild=false
+  msbuild_options: /p:PostBuildEventUseInBuild=false
 
 artifacts:
   - path: projects\vs2019\Release\hl.dll
