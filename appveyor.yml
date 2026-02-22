@@ -1,0 +1,16 @@
+image: Visual Studio 2019
+
+configuration: Release
+platform: x86
+
+build:
+  project: projects/vs2019/projects.sln
+  verbosity: minimal
+
+artifacts:
+  - path: projects\vs2019\Release\hl.dll
+    name: hl-server-dll
+  - path: projects\vs2019\Release\client.dll
+    name: hl-client-dll
+
+deploy: off
