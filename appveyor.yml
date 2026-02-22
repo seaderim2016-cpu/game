@@ -1,7 +1,7 @@
 image: Visual Studio 2019
 
 configuration: Release
-platform: x86
+platform: Win32
 
 build:
   project: projects/vs2019/projects.sln
