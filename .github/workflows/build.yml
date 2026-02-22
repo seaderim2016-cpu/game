@@ -1,0 +1,30 @@
+name: Build Half-Life DLL
+
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    branches: [ "master", "main" ]
+
+jobs:
+  build:
+    runs-on: windows-2019
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Build Solution
+      working-directory: ./projects/vs2019
+      run: msbuild projects.sln /p:Configuration=Release /p:Platform=x86
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: hl-dlls
+        path: |
+          ./projects/vs2019/Release/hl.dll
+          ./projects/vs2019/Release/client.dll
